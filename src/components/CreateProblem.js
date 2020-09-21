@@ -6,7 +6,7 @@ class CreateProblem extends Component {
         super(props);
         this.state = {
             sectionNumber: '1',
-            sectionName: '우리 생활 속의 화학',
+            sectionName: '',
             examType: '평가원',
             examYear: '2020',
             problemPage: '1',
@@ -31,20 +31,9 @@ class CreateProblem extends Component {
             createdName: authService.currentUser.displayName,
         });
 
-        //old handleSubmit below
-        // let data = JSON.parse(localStorage.getItem('problems'));
-        // if (data === null) {
-        //     data = [];
-        //     data.push(this.state);
-        // } else {
-        //     data = Object.values(data);
-        //     data.push(this.state);
-        // }
-        // localStorage.setItem('problems', JSON.stringify(data));
-
         this.setState({
             sectionNumber: '1',
-            sectionName: '우리 생활 속의 화학',
+            sectionName: '',
             examType: '평가원',
             examYear: '2020',
             problemPage: '1',
@@ -62,6 +51,18 @@ class CreateProblem extends Component {
             let month = today.getMonth() + 1;
             this.setState({ solvedMonth: month + '월' });
         }
+        if (this.state.sectionName === '') {
+            this.setState({ sectionName: '우리 생활 속의 화학' });
+        }
+        if (this.state.sectionName === '우리 생활 속의 화학') {
+            if (this.state.sectionNumber == 2) {
+                this.setState({ sectionName: '원자의 구조' });
+            } else if (this.state.sectionNumber == 3) {
+                this.setState({ sectionName: '이온결합' });
+            } else if (this.state.sectionNumber == 4) {
+                this.setState({ sectionName: '동적평형' });
+            }
+        }
     }
     componentDidUpdate() {
         if (this.state.solvedMonth == '') {
@@ -69,11 +70,24 @@ class CreateProblem extends Component {
             let month = today.getMonth() + 1;
             this.setState({ solvedMonth: month + '월' });
         }
+        if (this.state.sectionName === '') {
+            this.setState({ sectionName: '우리 생활 속의 화학' });
+        }
+        if (this.state.sectionName === '우리 생활 속의 화학') {
+            if (this.state.sectionNumber == 2) {
+                this.setState({ sectionName: '원자의 구조' });
+            } else if (this.state.sectionNumber == 3) {
+                this.setState({ sectionName: '이온결합' });
+            } else if (this.state.sectionNumber == 4) {
+                this.setState({ sectionName: '동적평형' });
+            }
+        }
     }
 
     async resetData() {
         if (window.confirm('정말 초기화 하시겠습니까?\n입력한 모든 데이터가 삭제됩니다.')) {
-            await dbService.collection(authService.currentUser.uid)
+            await dbService
+                .collection(authService.currentUser.uid)
                 .get()
                 .then((res) => {
                     res.forEach((element) => {
@@ -83,7 +97,7 @@ class CreateProblem extends Component {
 
             this.setState({
                 sectionNumber: '1',
-                sectionName: '우리 생활 속의 화학',
+                sectionName: '',
                 examType: '평가원',
                 examYear: '2020',
                 problemPage: '1',
@@ -140,7 +154,6 @@ class CreateProblem extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="inputs">
                 <h1 style={{ alignSelf: 'center' }}>오답 입력</h1>
