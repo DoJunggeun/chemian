@@ -1,13 +1,13 @@
 {
   "main.css": "/chemian/static/css/main.8d29088e.chunk.css",
-  "main.js": "/chemian/static/js/main.a671b72b.chunk.js",
-  "main.js.map": "/chemian/static/js/main.a671b72b.chunk.js.map",
+  "main.js": "/chemian/static/js/main.f8f09809.chunk.js",
+  "main.js.map": "/chemian/static/js/main.f8f09809.chunk.js.map",
   "static/js/1.a67d7e52.chunk.js": "/chemian/static/js/1.a67d7e52.chunk.js",
   "static/js/1.a67d7e52.chunk.js.map": "/chemian/static/js/1.a67d7e52.chunk.js.map",
   "runtime~main.js": "/chemian/static/js/runtime~main.29cbc51a.js",
   "runtime~main.js.map": "/chemian/static/js/runtime~main.29cbc51a.js.map",
   "static/css/main.8d29088e.chunk.css.map": "/chemian/static/css/main.8d29088e.chunk.css.map",
   "index.html": "/chemian/index.html",
-  "precache-manifest.815f6839e255a667bce7cc1fe0a05f15.js": "/chemian/precache-manifest.815f6839e255a667bce7cc1fe0a05f15.js",
+  "precache-manifest.16ccdf9e9a290225f7e77ddf19d6010a.js": "/chemian/precache-manifest.16ccdf9e9a290225f7e77ddf19d6010a.js",
   "service-worker.js": "/chemian/service-worker.js"
 }
