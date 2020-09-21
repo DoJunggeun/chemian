@@ -1,0 +1,45 @@
+.App {
+    text-align: center;
+    width: 375px;
+	margin: auto;
+}
+.inputs {
+    display: flex;
+    flex-direction: column;
+	padding:15px;
+    align-items: flex-start;
+	justify-content:space-evenly;
+	border: 2px solid gray;
+}
+label {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+.outputs {
+	display: flex;
+	flex-direction:column;
+	margin-top : 20px;
+	align-items:center;
+	justify-content:flex-start;
+}
+.problem {
+	margin: 10px;
+	border: 1px solid lightgray;
+	width: 100%;
+	text-align: left;
+	position:relative;
+}
+.stat {
+	display:flex;
+	flex-direction:column;
+	text-align:left;
+	align-items:center;
+	margin-bottom:50px;
+}
+select {
+	margin-left:8px;
+}
+label.specific {
+	margin:2px 0 2px 0;
+}
