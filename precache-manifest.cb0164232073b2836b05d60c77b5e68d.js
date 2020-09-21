@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/chemian/static/js/runtime~main.29cbc51a.js"
   },
   {
-    "revision": "f8f09809aba3a69c337b",
-    "url": "/chemian/static/js/main.f8f09809.chunk.js"
+    "revision": "df809bd0f307491b54dc",
+    "url": "/chemian/static/js/main.df809bd0.chunk.js"
   },
   {
     "revision": "a67d7e52567ccc0f5702",
     "url": "/chemian/static/js/1.a67d7e52.chunk.js"
   },
   {
-    "revision": "f8f09809aba3a69c337b",
+    "revision": "df809bd0f307491b54dc",
     "url": "/chemian/static/css/main.8d29088e.chunk.css"
   },
   {
-    "revision": "66db617b298ace4f586309215c4615bb",
+    "revision": "30394d46dded728fc961a0c4600ddfc9",
     "url": "/chemian/index.html"
   }
 ];
