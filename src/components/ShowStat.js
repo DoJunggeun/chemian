@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { usetState, useEffect } from 'react';
 import { authService, dbService } from "../fbase.js";
 
 function ShowStat() {

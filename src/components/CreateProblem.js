@@ -22,16 +22,16 @@ class CreateProblem extends Component {
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value });
     }
-	
+
     onSubmit = async (event) => {
         event.preventDefault();
         await dbService.collection(authService.currentUser.uid).add({
             info: this.state,
             createdTime: Date.now(),
-			createdName: authService.currentUser.displayName,
+            createdName: authService.currentUser.displayName,
         });
-		
-		//old handleSubmit below
+
+        //old handleSubmit below
         // let data = JSON.parse(localStorage.getItem('problems'));
         // if (data === null) {
         //     data = [];
@@ -54,8 +54,6 @@ class CreateProblem extends Component {
             solvedMonth: '',
             solvedWeek: '1주차',
         });
-		
-		
     };
 
     componentDidMount() {
@@ -74,23 +72,29 @@ class CreateProblem extends Component {
     }
 
     async resetData() {
-		window.alert("준비 중");
-			// if (window.confirm('정말 초기화 하시겠습니까?\n입력한 모든 데이터가 삭제됩니다.')) {
-			// await dbService.doc(`${authService.currentUser.uid}/`).delete();
-			// this.setState({
-			// sectionNumber: '1',
-			// sectionName: '우리 생활 속의 화학',
-			// examType: '평가원',
-			// examYear: '2020',
-			// problemPage: '1',
-			// problemScore: '2',
-			// reason: '오개념',
-			// description: '',
-			// solvedMonth: '',
-			// solvedWeek: '1주차',
-			// });
-			// } else {
-			// }
+        if (window.confirm('정말 초기화 하시겠습니까?\n입력한 모든 데이터가 삭제됩니다.')) {
+            await dbService.collection(authService.currentUser.uid)
+                .get()
+                .then((res) => {
+                    res.forEach((element) => {
+                        element.ref.delete();
+                    });
+                });
+
+            this.setState({
+                sectionNumber: '1',
+                sectionName: '우리 생활 속의 화학',
+                examType: '평가원',
+                examYear: '2020',
+                problemPage: '1',
+                problemScore: '2',
+                reason: '오개념',
+                description: '',
+                solvedMonth: '',
+                solvedWeek: '1주차',
+            });
+        } else {
+        }
     }
 
     chapter(sectionNumber) {
@@ -134,9 +138,9 @@ class CreateProblem extends Component {
             );
         }
     }
-	
+
     render() {
-		console.log(this.state);
+        console.log(this.state);
         return (
             <div className="inputs">
                 <h1 style={{ alignSelf: 'center' }}>오답 입력</h1>
@@ -219,7 +223,7 @@ class CreateProblem extends Component {
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
-                            <option value="2016">2016 이전</option>
+                            <option value="~2016">2016 이전</option>
                         </select>
                     </label>
                     <label>

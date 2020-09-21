@@ -5,19 +5,8 @@ function ShowProblems() {
     const [problem, setProblem] = useState(null);
     const [problems, setProblems] = useState([]);
 	const [specificDisplay, setSpecificDisplay] = useState(false);
-    // const getProblems = async () => {
-    //   const dbProblems = await dbService.collection(authService.currentUser.uid).get();
-    //   dbProblems.forEach((document) => {
-    //     const problemObject = {
-    //       ...document.data(),
-    //       id: document.id,
-    //     };
-    //     setProblems((prev) => [problemObject, ...prev]);
-    //   });
-    // };
     useEffect(() => {
-        // getProblems();
-        dbService.collection(authService.currentUser.uid).onSnapshot((snapshot) => {
+        dbService.collection(authService.currentUser.uid).orderBy("createdTime", "desc").onSnapshot((snapshot) => {
             const problemArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
@@ -72,7 +61,7 @@ function ShowProblems() {
                         <br />
                         {problem.info.problemPage + '페이지 (' + problem.info.problemScore + '점)'}
                         <br />
-                        {'푼 시기: ' + problem.info.solvedMonth + problem.info.solvedWeek + '주차'}
+                        {'푼 시기: ' + problem.info.solvedMonth + problem.info.solvedWeek}
                         <br />
                         {'오답 사유 : ' + problem.info.reason}
                         <br />
